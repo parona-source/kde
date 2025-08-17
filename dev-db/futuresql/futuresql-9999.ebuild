@@ -3,7 +3,6 @@
 
 EAPI=8
 
-ECM_EXAMPLES="true"
 ECM_TEST="true"
 KDE_ORG_CATEGORY="libraries"
 KFMIN=6.3.0
@@ -25,14 +24,5 @@ RESTRICT="!test? ( test )"
 
 RDEPEND="dev-qt/qtbase:6[sql]"
 DEPEND="${RDEPEND}
-	examples? ( dev-libs/qcoro )
 	test? ( dev-libs/qcoro )
 "
-
-src_install() {
-	if use examples; then
-		docinto examples
-		dodoc -r examples/*
-	fi
-	ecm_src_install
-}
